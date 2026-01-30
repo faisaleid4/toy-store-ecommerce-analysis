@@ -3,3 +3,5 @@
 Phase 1 has been completed. you can take a look here: [Phase 1 data understading](phase_1_data_understanding/database_overview.md)
 
 Phase 2 has been completed. you can take a look here: [Phase 2 Sales Product Analysis](phase_2_sales_product_analysis/phase_2_summary.md)
+
+Phase 3 is currently in progress. You can check the progress here: [Phase 3 Customer Funnel Analysis](phase_3_customer_funnel/phase_3_summary.md)
