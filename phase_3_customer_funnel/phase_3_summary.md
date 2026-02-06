@@ -98,13 +98,15 @@ SQL file: [02_user_funnel_steps.sql](SQL/02_user_funnel_steps.sql)
 ### Phase 3.2 – Python Analysis
 for further analysis, I utilized Python to perform a detailed examination of drop-off rates at various stages of the purchase funnel and to compare the behavior of converted versus non-converted sessions. in the comming lines I will outline the key steps and findings from this analysis.
 
-#### Dop-off Rate Analysis
+#### Drop-off Rate Analysis
 I began by loading the website pageviews data into a pandas DataFrame. I then calculated the drop-off rates by identifying the last page visited in each session and counting how many sessions ended on each page. This allowed me to determine where customers were most likely to abandon the purchase process. Key steps included:
 * Identifying the last page visited in each session.
 * Calculating the number of sessions that dropped off at each page.
 * Calculating drop-off rates based on page visits and total sessions.
 * Merging the results into a single DataFrame for analysis.
 * Sorting the drop-off rates to identify critical points in the funnel.
+  
+Kindly check notebook python file: [funnel_analysis.ipynb](Python/funnel_analysis.ipynb)
 
 #### Converted vs Non-converted Sessions Behavior Comparison
 I then compared the behavior of sessions that resulted in orders (converted) versus those that did not (non-converted). This involved:
@@ -119,7 +121,9 @@ I then compared the behavior of sessions that resulted in orders (converted) ver
 	*  Calculating percentages and averages to highlight differences in behavior between the two groups.
 * Presenting the findings in a clear and concise manner.
 
-Kindly check notebook python file: [funnel_analysis.ipynb](Python/funnel_analysis.ipynb)
+Kindly check notebook python file: [behavior_comparison.ipynb](Python/behavior_comparsion.ipynb)
+
+#### SQL Findings Validation
 
 #### Findings
 From the drop-off rate analysis, I identified specific pages where customers were most likely to abandon their sessions, indicating potential areas for improvement in the user experience.  

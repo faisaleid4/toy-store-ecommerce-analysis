@@ -10,7 +10,7 @@ This database recordes data form online toy store that sells four different prod
 ## 📅 orders Table (Fact)
 Information about each placed order is recorded in eight columns:  
 
-![alt text](image-1.png) 
+![alt text](images/image-1.png) 
   
   
 ### Grain: One row per order  
@@ -20,7 +20,7 @@ Information about each placed order is recorded in eight columns:
 ## 📅 order_items Table (Fact)
 Information about each item in a placed order is contained in seven columns:  
 
-![alt text](image.png)  
+![alt text](images/image.png)  
 
 ### Grain: One row per item per order  
 ### Row Count: **~40K**  
@@ -28,7 +28,7 @@ Information about each item in a placed order is contained in seven columns:
 ## 📅 order_item_refunds Table (Fact) 
 Information about refunded items is recorded in five columns:  
 
-![alt text](image-2.png)  
+![alt text](images/image-2.png)  
 
 ### Grain: One row per refunded item  
 ### Row Count: **~2K**  
@@ -37,7 +37,7 @@ Information about refunded items is recorded in five columns:
 
 Information about different products types is contained in three columns:  
   
-![alt text](image-3.png)  
+![alt text](images/image-3.png)  
 
 ### Grain: One row for each product type  
 ### Row Count: **4**
@@ -46,7 +46,7 @@ Information about different products types is contained in three columns:
 
 Information about users sessions in the store website is recorded in nine columns:  
   
-![alt text](image-4.png)  
+![alt text](images/image-4.png)  
 
 ### Grain: One row per session per user
 ### Row Count: **~500K**  
@@ -55,7 +55,7 @@ Information about users sessions in the store website is recorded in nine column
 ## 📅 website_pageviews Table (Fact) 
 Information about users navigation inside the store website is recorded in four columns:
   
-![alt text](image-5.png) 
+![alt text](images/image-5.png) 
 
 ### Grain: One row per page viewed per website session
 ### Row Count: **~1.2M**
@@ -79,7 +79,7 @@ These tables contains detailed information and catigorical data about each busin
 ## 🗺️ Tables Relationships Map  
 Here is a map that illusterates the relationsships between our tabels.
 
-![alt text](<Screenshot 2026-01-26 035750.png>)  
+![alt text](<images/Screenshot 2026-01-26 035750.png>)  
 
 ## 🔠 Data Quality Check  
 Using MS SQL Server I have checked some major problems that may exists in any data, these are Duplication, Voids and Lost Records. These defects can cause wrong results in analysis process, in turn this may leade wrong business decision. Here what I got.
@@ -100,7 +100,7 @@ HAVING COUNT(*) > 1
 ```
 
 I got the same result for all tables, which means there is no duplication problem in our database.
-Here is the full queries file: [Duplication Check Queries.sql](duplication_check.sql)
+Here is the full queries file: [Duplication Check Queries.sql](SQL/duplication_check.sql)
 
 ### Voids Check
 I checked for voids by typing some simple queries. Searched for 'NULL' string and blank spaces in char or varchar data type columns in all tables containes such columns. Here is my query  
@@ -137,7 +137,7 @@ WHERE  utm_source = 'NULL'
 -- Result: 83,328 out of 472,871 rows contains one 'NULL' or balnk space value at leaset
 ```
 Just in website_sessions table I found 83,328 rows contains at least one 'NULL' or blank space value. This is about 17.6% of the table rows, NULL values in UTM fields represent direct or organic traffic rather than data errors.
-Here is the queries file: [Voids Check Queries.sql](voids_check.sql)
+Here is the queries file: [Voids Check Queries.sql](SQL/voids_check.sql)
 
 ### Lost Records Check
 I checked for lost records by typing some simple queries. Used FULL JOIN between fact and dimension tables on their related ID columns to make sure that all records in both tables are matched and no lost records exists. Here is a sample of my query  
@@ -159,7 +159,7 @@ WHERE
 -- Result: no lost records
 ```
 I got the same result for all fact and dimension tables relationships, which means there is no lost records problem in our database.
-Here is the full queries file: [Lost Records Check Queries.sql](lost_records_check.sql)
+Here is the full queries file: [Lost Records Check Queries.sql](SQL/lost_records_check.sql)
 
 Write a short summary:
 
